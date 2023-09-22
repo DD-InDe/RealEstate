@@ -15,7 +15,15 @@ public partial class RealEstateContext : DbContext
     {
     }
 
+    public virtual DbSet<Address> Addresses { get; set; }
+
     public virtual DbSet<Client> Clients { get; set; }
+
+    public virtual DbSet<District> Districts { get; set; }
+
+    public virtual DbSet<Estate> Estates { get; set; }
+
+    public virtual DbSet<EstateType> EstateTypes { get; set; }
 
     public virtual DbSet<Realtor> Realtors { get; set; }
 
@@ -25,6 +33,16 @@ public partial class RealEstateContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Address>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Address__3214EC07D137CCF1");
+
+            entity.ToTable("Address");
+
+            entity.Property(e => e.City).HasMaxLength(100);
+            entity.Property(e => e.Street).HasMaxLength(100);
+        });
+
         modelBuilder.Entity<Client>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Client__3214EC072BB49E3B");
@@ -36,6 +54,37 @@ public partial class RealEstateContext : DbContext
             entity.Property(e => e.LastName).HasMaxLength(100);
             entity.Property(e => e.MiddleName).HasMaxLength(100);
             entity.Property(e => e.Phone).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<District>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__District__3214EC074BF60AFF");
+
+            entity.Property(e => e.Name).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<Estate>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Estate__3214EC0768C68B31");
+
+            entity.ToTable("Estate");
+
+            entity.HasOne(d => d.Address).WithMany(p => p.Estates)
+                .HasForeignKey(d => d.AddressId)
+                .HasConstraintName("FK__Estate__AddressI__76969D2E");
+
+            entity.HasOne(d => d.Type).WithMany(p => p.Estates)
+                .HasForeignKey(d => d.TypeId)
+                .HasConstraintName("FK__Estate__TypeId__778AC167");
+        });
+
+        modelBuilder.Entity<EstateType>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__EstateTy__3214EC07B8D9C6B8");
+
+            entity.ToTable("EstateType");
+
+            entity.Property(e => e.Name).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Realtor>(entity =>

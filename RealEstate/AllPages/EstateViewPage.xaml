@@ -1,0 +1,42 @@
+﻿<Page x:Class="RealEstate.AllPages.EstateViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:RealEstate.AllPages"
+      mc:Ignorable="d"
+      Title="Просмотр объектов" Height="auto" Width="auto">
+    <Grid>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Тип:" Style="{StaticResource MainTextBlock}"/>
+                    <ComboBox x:Name="TypeComboBox" SelectionChanged="TypeComboBox_OnSelectionChanged" Width="150" Margin="5"/>
+                    <TextBlock Text="Адрес:" Style="{StaticResource MainTextBlock}"/>
+                    <ComboBox x:Name="AddressComboBox" SelectionChanged="AddressComboBox_OnSelectionChanged" Width="150" Margin="5"/>
+                    <Button x:Name="AddButton" Content="Добавить объект" Click="AddButton_OnClick" Width="120" Margin="5"/>
+                </StackPanel>
+                <DataGrid x:Name="EstateDataGrid" Style="{StaticResource DefaultDataGird}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Тип" HeaderStyle="{StaticResource DGHeader}" Binding="{Binding Type.Name}"/>
+                        <DataGridTextColumn Header="Город" HeaderStyle="{StaticResource DGHeader}" Binding="{Binding Address.City}"/>
+                        <DataGridTextColumn Header="Улица" HeaderStyle="{StaticResource DGHeader}" Binding="{Binding Address.Street}"/>
+                        <DataGridTextColumn Header="Площадь" HeaderStyle="{StaticResource DGHeader}" Binding="{Binding TotalArea}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="DeleteButton" Click="DeleteButton_OnClick" Margin="5" Content="Удалить" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="UpdateButton" Click="UpdateButton_OnClick" Margin="5" Content="Изменить" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+    </Grid>
+</Page>

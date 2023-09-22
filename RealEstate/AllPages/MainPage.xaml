@@ -8,16 +8,9 @@
       Title="Меню" Height="auto" Width="auto">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical">
-                    <Button x:Name="ClientAddButton" Click="ClientAddButton_OnClick" Width="150" Height="30" Content="Добавить клиента" Margin="10"/>
-                    <Button x:Name="ClientViewButton" Click="ClientViewButton_OnClick" Width="150" Height="30" Content="Просмотреть клиентов" Margin="10"/>
-                </StackPanel>
-                <StackPanel Orientation="Vertical">
-                    <Button x:Name="RealtorAddButton" Click="RealtorAddButton_OnClick" Width="150" Height="30" Content="Добавить риэлтора" Margin="10"/>
-                    <Button x:Name="RealtorViewButton" Click="RealtorViewButton_OnClick" Width="150" Height="30" Content="Просмотреть риэлторов" Margin="10"/>
-                </StackPanel>
-            </StackPanel>
+            <Button x:Name="ClientViewButton" Click="ClientViewButton_OnClick" Width="150" Height="30" Content="Просмотреть клиентов" Margin="10" />
+            <Button x:Name="RealtorViewButton" Click="RealtorViewButton_OnClick" Width="150" Height="30" Content="Просмотреть риэлторов" Margin="10" />
+            <Button x:Name="EstateViewButton" Click="EstateViewButton_OnClick" Width="150" Height="30" Content="Просмотреть объекты" Margin="10" />
         </StackPanel>
     </Grid>
 </Page>
