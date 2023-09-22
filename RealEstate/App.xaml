@@ -1,0 +1,30 @@
+﻿<Application x:Class="RealEstate.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RealEstate"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         <Style TargetType="TextBlock" x:Key="MainTextBlock">
+             <Setter Property="HorizontalAlignment" Value="Left"/>
+             <Setter Property="Height" Value="20"/>
+             <Setter Property="Margin" Value="5"/>
+         </Style>
+        <Style TargetType="DataGridColumnHeader" x:Key="DGHeader">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="MainTextBox">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="150"/>
+             <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="DataGrid" x:Key="DefaultDataGird">
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="MaxHeight" Value="450"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="MinWidth" Value="300"/>
+            <Setter Property="MinColumnWidth" Value="150"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+        </Style>
+    </Application.Resources>
+</Application>

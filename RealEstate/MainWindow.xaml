@@ -1,0 +1,19 @@
+﻿<Window x:Class="RealEstate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RealEstate"
+        mc:Ignorable="d"
+        Title="{Binding ElementName=MainFrame, Path=Content.Title}" SizeToContent="WidthAndHeight" MinHeight="350" MinWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Button Content="Назад" Width="80" HorizontalAlignment="Right" x:Name="BackButton" Click="BackButton_OnClick" Margin="10"/>
+        <TextBlock FontSize="20" Text="{Binding ElementName=MainFrame, Path=Content.Title}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Frame Grid.Row="1" x:Name="MainFrame" VerticalAlignment="Center" HorizontalAlignment="Center" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
